@@ -1,0 +1,12 @@
+#quiz-navbar{
+    color: rgba(0,0,200, 0.8);
+    font-size: larger;
+}
+#quiz-body>div, li{
+    width: 800px;
+    margin: 0px auto;
+}
+li:hover{
+    cursor: pointer;
+    background-color: hsl(210, 13%, 80%);
+}

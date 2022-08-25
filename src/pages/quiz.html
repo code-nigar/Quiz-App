@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/9b85e336b0.js" crossorigin="anonymous"></script>
+    <link href="quiz.css" rel="stylesheet">
+</head>
+<body>
+    <div id="quiz-navbar" class="d-flex flex-row justify-content-between shadow p-3 mb-5 bg-white rounded">
+        <div id="quiz-title">Quiz Title</div>
+        <div id="remaining-time"> 20:00</div>
+    </div>
+
+    <div id="quiz-body" class="d-flex flex-column flex-nowrap">
+        <div class="p-3 bg-light fw-bold" id="quiz-question-number"></div>
+        <div class="p-3 shadow" id="quiz-question"></div>
+        <ul class="quiz-options p-4">
+            <li id="opt1" class="quiz-option-item d-block p-3 shadow-sm rounded my-2" onclick="clickedOpt(1)"></li>
+            <li id="opt2" class="quiz-option-item d-block p-3 shadow-sm rounded my-2" onclick="clickedOpt(2)"></li>
+            <li id="opt3" class="quiz-option-item d-block p-3 shadow-sm rounded my-2" onclick="clickedOpt(3)"></li>
+            <li id="opt4" class="quiz-option-item d-block p-3 shadow-sm rounded my-2" onclick="clickedOpt(4)"></li>
+        </ul>
+    </div>
+
+    <script src="quiz.js"></script>
+</body>
+</html>

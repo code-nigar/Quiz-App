@@ -1,0 +1,47 @@
+#welcome-user{
+    text-transform: capitalize;
+    font-weight: bold;
+}
+#dashboard-body{
+    width: 800px;
+    margin: 5px auto;
+    padding: 2%;
+}
+#quiz-categories-container{
+    margin-top: 20px;
+}
+.quiz-category{
+    background-color: rgba(45, 45, 45, 0.5);
+    margin: 1.007rem;
+    padding: 0 0.75rem;
+    border-radius: 8px;
+    width: 700px;
+}
+.category-detail{
+    width: 400px;
+}
+.quiz-image{
+    width: 90%;
+    font-size: 4.25rem;
+    padding: 0px 5px;
+}
+.title{
+    font-weight: 600;
+    font-size: 1.05rem;
+}
+.duration, .info-button{
+    margin-left: 1.5rem;
+}
+.muted-info{
+    color: rgba(45, 45, 45, 0.8);
+}
+.info-button:hover{
+    color: rgba(0, 0, 125, 0.8);
+    cursor:pointer;
+}
+.acrdn-panel{
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+   
+}
