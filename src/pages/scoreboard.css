@@ -1,0 +1,30 @@
+#score-board{
+    max-width: 800px;
+    margin: 5px auto;
+    padding: 2%;
+    background-image: radial-gradient(#ebebeb,white);
+    border-radius: 1rem;
+}
+.card-title, .score-count{
+    font-weight: 600;
+    font-size: 2.05rem;
+}
+
+.dg{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    text-align: center;
+}
+button{
+    width: 50%;
+    padding-bottom: 5px;
+}
+.acrdn-panel{
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    padding: 10px auto;
+}
+a{
+    cursor: pointer;
+}

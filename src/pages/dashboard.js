@@ -27,9 +27,22 @@ for (i=0; i<startbtns.length; i++) {
 }
 
 function start(bt){
-  sessionStorage.setItem("quizType",bt);
+  localStorage.setItem("quizType",bt);
   
   let currentPath = window.location.pathname;
   let newpath = currentPath.slice(0,currentPath.indexOf("dashboard.html")) + "quiz.html"
+  window.location.pathname = newpath;
+}
+function showScoreboard(){
+  let currentPath = window.location.pathname;
+  let newpath = currentPath.slice(0,currentPath.indexOf("dashboard.html")) + "scoreboard.html"
+  window.location.pathname = newpath;
+}
+function viewDashboard(){
+  location.reload();
+}
+function logOut(){
+  let currentPath = window.location.pathname;
+  let newpath = currentPath.slice(0,currentPath.indexOf("pages")) + "index.html"
   window.location.pathname = newpath;
 }

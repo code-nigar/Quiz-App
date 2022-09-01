@@ -1,12 +1,7 @@
-let quizType = sessionStorage.getItem("quizType");
+let quizType = localStorage.getItem("quizType");
 console.log(quizType);
-
-//var quiz_options = document.getElementsByClassName("quiz-option-item");
-//var i;
-
-//for (i = 0; i < quiz_options.length; i++) {
-//  quiz_options[i].addEventListener("click", checkOption(i));
-//}
+let quizTitle = quizType.slice(0,quizType.indexOf("btn"))+" Quiz";
+document.getElementById("quiz-title").innerHTML = quizTitle;
 
 function Question(
   question,
@@ -200,21 +195,10 @@ else if(quizType === "JSbtn"){
 }
 console.log(quizQuestion);
 
-//console.log(html_quiz);
-//console.log(html_quiz[0].htmlQuizQuestion.question);
-//console.log(html_quiz[0].htmlQuizQuestion.option1);
-
 var score = 0;
 var selectedOption = 0;
 var correctOptionNumber;
 var renderQuestion = 0;
-/*
-function clickedOpt(value) {
-  selectedOption = value;
-}
-*/
-
-//let x;
 
 const loadQuestion = (questionObj,x) => {
   document.getElementById("quiz-question-number").innerHTML =
@@ -249,30 +233,21 @@ for (let i = 0; i < quiz_options.length; i++) {
       setTimeout(loadQuestion(quizQuestion,renderQuestion),2000); //load new question
     }else{
       alert("quiz ends\nYour score is "+score);
+      if(quizType === "HTMLbtn"){
+        localStorage.setItem("HTML-Score",score+"/"+quizQuestion.length);
+      }
+      else if(quizType === "CSSbtn"){
+        localStorage.setItem("CSS-Score",score+"/"+quizQuestion.length);
+      }
+      else if(quizType === "JSbtn"){
+        localStorage.setItem("JS-Score",score+"/"+quizQuestion.length);
+      }else{
+        console.log("quizType ERROR, cant set score");
+      }
+      
+let currentPath = window.location.pathname;
+let newpath = currentPath.slice(0,currentPath.indexOf("quiz.html")) + "scoreboard.html"
+window.location.pathname = newpath;
     }
   });
 }
-/*
-function checkOption(i){
-  if(i == quizQuestion[renderQuestion].QuizQuestion.correctOptionNumber){
-    console.log("perfect");
-  }else{
-    console.log("false");
-  }
-  renderQuestion++;
-  setTimeout(loadQuestion(quizQuestion,renderQuestion),2000);
-}
-*/
-/*
-const getCheckAnswer = (clickedelemntid) => {
-  //let answer;
-  let opts = document.getElementsByClassName("quiz-option-item");
-  if(opts[correctOptionNumber] === opts[clickedelemntid]){
-    console.log("correct answer");
-    score += score;
-  }
-  else{
-    console.log("inorrect");
-  }
-}
-*/
