@@ -41,3 +41,19 @@ if(cssScore){
 if(jsScore){
   document.getElementsByClassName("score-count")[2].innerText = jsScore;
 }
+
+//hidden play buttons
+var startbtns = document.getElementsByClassName("start-button");
+for (i=0; i<startbtns.length; i++) {
+  startbtns[i].addEventListener("click",()=>{
+    let btn_triggered = event.target.id;
+    start(btn_triggered);
+  })
+}
+function start(bt){
+  localStorage.setItem("quizType",bt);
+  
+  let currentPath = window.location.pathname;
+  let newpath = currentPath.slice(0,currentPath.indexOf("scoreboard.html")) + "quiz.html"
+  window.location.pathname = newpath;
+}

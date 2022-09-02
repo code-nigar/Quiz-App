@@ -47,3 +47,45 @@
 a{
     cursor: pointer;
 }
+@media (max-width:900px) {
+    
+#dashboard-body{
+    width: 700px;
+    margin: 5px auto;
+    padding: 2%;
+}
+.quiz-category{
+    width: 500px;
+}
+.category-detail{
+    width: 350px;
+}
+}
+@media (max-width:720px) {
+    
+    #dashboard-body{
+        width: 450px;
+        margin: 5px auto;
+        padding: 2%;
+    }
+    .quiz-category{
+        width: 370px;
+    }
+    .category-detail{
+        width: 330px;
+    }
+    }
+@media (max-width:450px) {
+    
+    #dashboard-body{
+        width: 400px;
+        margin: 5px auto;
+        padding: 2%;
+    }
+    .quiz-category{
+        width: 350px;
+    }
+    .category-detail{
+        width: 300px;
+    }
+ }

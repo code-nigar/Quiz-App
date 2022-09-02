@@ -4,6 +4,9 @@
 }
 body{
     font-family: Arial, Helvetica, sans-serif;
+    background-image: url("https://wallpaperaccess.com/full/2324580.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .container
@@ -137,4 +140,36 @@ body{
 }
 .signup-button:hover{
     background-color: hsl(162, 94%, 38%);
+}
+
+@media (max-width:600px) {
+    .container{
+        display:flex;
+        flex-direction: column-reverse;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        width: 500px;
+        height: 100vh;
+    }
+    .login-form-container, .signup-form-container{
+        padding: 0.75rem;
+        margin: 0.15rem;
+    }
+}
+@media (max-width:400px) {
+    .container{
+        display:flex;
+        flex-direction: column-reverse;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        width: 300px;
+        height: 100vh;
+    }
+    .login-form-container, .signup-form-container{
+        padding: 0.75rem;
+        margin: 0.15rem;
+        border-radius: 8px;
+    }
 }

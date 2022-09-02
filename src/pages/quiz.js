@@ -18,7 +18,7 @@ function Question(
   this.option4 = option4;
   this.correctOptionNumber = correctOptionNumber;
 }
-
+// array of quiz-question-objects
 const html_quiz = [
   {
     QuizQuestion: new Question(
@@ -201,7 +201,8 @@ var correctOptionNumber;
 var renderQuestion = 0;
 
 const loadQuestion = (questionObj,x) => {
-  document.getElementById("quiz-question-number").innerHTML =
+  setTimeout(()=>{
+    document.getElementById("quiz-question-number").innerHTML =
     "Question " + (x+1);
   document.getElementById("quiz-question").innerHTML =
   questionObj[x].QuizQuestion.question;
@@ -213,8 +214,14 @@ const loadQuestion = (questionObj,x) => {
   questionObj[x].QuizQuestion.option3;
   document.getElementById("opt4").innerHTML =
   questionObj[x].QuizQuestion.option4;
+  //revert option colors
+  document.getElementById("opt1").style = "background-color: white; transition: background-color 600ms linear;";
+  document.getElementById("opt2").style = "background-color: white; transition: background-color 600ms linear;";
+  document.getElementById("opt3").style = "background-color: white; transition: background-color 600ms linear;";
+  document.getElementById("opt4").style = "background-color: white; transition: background-color 600ms linear;";
   correctOptionNumber = questionObj[x].QuizQuestion.correctOptionNumber;
-};
+  },700)
+}
 loadQuestion(quizQuestion,renderQuestion);
 
 //quiz-options and their functionality
@@ -225,14 +232,15 @@ for (let i = 0; i < quiz_options.length; i++) {
       console.log("perfect!!");
       score++;
       console.log(score);
+      document.getElementById(quiz_options[i].id).style = "background-color: #3cb371; transition: background-color 500ms linear; color: white; transition: color 400ms linear;";
     }else{
       console.log("false");
+      document.getElementById(quiz_options[i].id).style = "background-color: #e03c31; transition: background-color 500ms linear; color: white; transition: color 400ms linear;";
     }
     renderQuestion++;
     if(renderQuestion<quizQuestion.length){ //keep loading new question till condition matches
-      setTimeout(loadQuestion(quizQuestion,renderQuestion),2000); //load new question
+      loadQuestion(quizQuestion,renderQuestion); //load new question
     }else{
-      alert("quiz ends\nYour score is "+score);
       if(quizType === "HTMLbtn"){
         localStorage.setItem("HTML-Score",score+"/"+quizQuestion.length);
       }
@@ -244,10 +252,19 @@ for (let i = 0; i < quiz_options.length; i++) {
       }else{
         console.log("quizType ERROR, cant set score");
       }
-      
-let currentPath = window.location.pathname;
-let newpath = currentPath.slice(0,currentPath.indexOf("quiz.html")) + "scoreboard.html"
-window.location.pathname = newpath;
+      //display score as sweet alert
+      swal({ 
+        title: "Your Score!",
+        icon: "success",
+        text: score+"/"+quizQuestion.length,
+        timer: 2500,
+      });
+      //move to dashboard
+      setTimeout(()=>{
+        let currentPath = window.location.pathname;
+        let newpath = currentPath.slice(0,currentPath.indexOf("quiz.html")) + "dashboard.html"
+        window.location.pathname = newpath;
+      },2600);
     }
   });
 }
