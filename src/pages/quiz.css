@@ -16,3 +16,22 @@ li:hover{
 .swal-text {
     font-size: large;
 }
+.swal{
+    margin: 20px auto;
+    max-width: 70vw;
+}
+@media (max-width:850px) {
+    #quiz-body>div, li{
+        width: 600px;
+    }
+}
+@media (max-width:640px) {
+    #quiz-body>div, li{
+        width: 450px;
+    }
+}
+@media (max-width:480px) {
+    #quiz-body>div, li{
+        width: 320px;
+    }
+}

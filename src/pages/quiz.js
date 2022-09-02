@@ -195,6 +195,50 @@ else if(quizType === "JSbtn"){
 }
 console.log(quizQuestion);
 
+//running timer
+var counter = 0;
+var timeleft = 300; //5 minutes
+var dec=1;
+var sec,min;
+function calcSec(){
+  counter++;
+  min = Math.floor((timeleft-dec)/60);
+  sec = (timeleft-counter)%60;
+  if(min>=0 && sec>=0){
+  document.getElementById("remaining-time").innerHTML=(min +" : "+ sec);
+  }else{
+    document.getElementById("remaining-time").innerHTML=("00 : 00");
+    document.getElementById("remaining-time").style="color:red; font-weight:500;";
+    //set quiz marks which belongs to current  quiz type
+    if(quizType === "HTMLbtn"){
+      localStorage.setItem("HTML-Score",score+"/"+quizQuestion.length);
+    }
+    else if(quizType === "CSSbtn"){
+      localStorage.setItem("CSS-Score",score+"/"+quizQuestion.length);
+    }
+    else if(quizType === "JSbtn"){
+      localStorage.setItem("JS-Score",score+"/"+quizQuestion.length);
+    }else{
+      console.log("quizType ERROR, cant set score");
+    }
+    //display score by latest
+    swal({ 
+      title: "Time is up!",
+      icon: "info",
+      text: "you scored: "+score+"/"+quizQuestion.length,
+      timer: 3000,
+    });
+    //move to dashboard
+    setTimeout(()=>{
+      let currentPath = window.location.pathname;
+      let newpath = currentPath.slice(0,currentPath.indexOf("quiz.html")) + "dashboard.html"
+      window.location.pathname = newpath;
+    },2600);
+  }
+  setInterval(dec++,6000); //minute decreases after 6000ms
+}
+setInterval(calcSec,1000); //each second is rendered after 1000ms
+
 var score = 0;
 var selectedOption = 0;
 var correctOptionNumber;
